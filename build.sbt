@@ -53,16 +53,16 @@ lazy val commonSettings = Seq(
   }
 )
 
-lazy val chisel = (project in file("chisel3")).settings(commonSettings)
+//lazy val chisel = (project in file("chisel3")).settings(commonSettings)
 
 def dependOnChisel(prj: Project) = {
-  if (sys.props.contains("ROCKET_USE_MAVEN")) {
+  //if (sys.props.contains("ROCKET_USE_MAVEN")) {
     prj.settings(
-      libraryDependencies ++= Seq("edu.berkeley.cs" %% "chisel3" % "3.2-SNAPSHOT")
+      libraryDependencies ++= Seq("edu.berkeley.cs" %% "chisel3" % "3.3-SNAPSHOT")
     )
-  } else {
-    prj.dependsOn(chisel)
-  }
+  //} else {
+  //  prj.dependsOn(chisel)
+  //}
 }
 
 lazy val `api-config-chipsalliance` = (project in file("api-config-chipsalliance/build-rules/sbt"))
